@@ -19,11 +19,7 @@ jobs:
           node-version: '18'
 
       - name: Installations des dépendances
-        run: npm install
-        with:
-          working-directory: ./lab-1/code-appli-node-js/result
+        run: cd lab-1/code-appli-node-js/result && npm install
 
       - name: Tester l'application Nodejs
-        run: npm test
-        with:
-          working-directory: ./lab-1/code-appli-node-js/result
+        run: cd lab-1/code-appli-node-js/result && npm test
