@@ -1,0 +1,28 @@
+name: CI pour Nodejs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        working-directory: ./lab-1/code-appli-node-js/result
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        working-directory: ./lab-1/code-appli-node-js/result
+        with:
+          node-version: '18'
+
+      - name: Installations des dépendances
+        working-directory: ./lab-1/code-appli-node-js/result
+        run: npm install
+
+      - name: Tester l'application Nodejs
+        run: npm test
